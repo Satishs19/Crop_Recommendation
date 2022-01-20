@@ -1,0 +1,59 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{ super() }}
+<style>
+  /* body {
+    background-image: url('/static/back.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  } */
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+  }
+</style>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+
+{% block title %}
+Crop recomendation
+{% endblock %}
+
+
+{% block content %}
+
+<div class="topnav">
+  <a style="background-color: #333;color: white;font-size: 20px;font-weight: bold;">Crop Recomendation</a>
+  <a href="about" style="float:right">About</a>
+  <a class="active" href="crop" style="float:right">Crop</a>
+  <a href="/" style="float:right">Home</a>
+</div>
+
+<div class="container" style="width:25%;">
+  <div class="row">
+    <div class="mx-lg-auto mx-md-auto">
+      <h1 class="pt-5 pb-2">Crop recomendation</h1>
+      <div class="pt-5">
+        {{ wtf.quick_form(form) }}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>&copy; 2021 </p>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{ super() }}
+<style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        height: 60px;
+        width: 100%;
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding-top: 20px;
+    }
+</style>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}\{% block title %}
+Crop recomendation
+{% endblock %}
+
+{% block content %}
+<div class="topnav">
+    <a style="background-color: #333;color: white;font-size: 20px;font-weight: bold;">Crop Recomendation</a>
+    <a href="about" style="float:right">About</a>
+    <a class="active" href="crop" style="float:right">Crop</a>
+    <a href="/" style="float:right">Home</a>
+</div>
+
+<div class="container" style="width:95%;">
+    <div class="row ">
+        <table style="border: 0px;padding-top: 10px;margin-top: 70px;">
+            <tr>
+                <td><img src="../static/Algorithms.jpg" width=80% ></td>
+                <td style ="text-align: left;">
+                    <p style="font-size: 20px;">According to Random Forest : {{msg1}}<br><br>
+                    According to Logestic Regression : {{msg2}}<br><br>
+                    According to Support Vector Machine : {{msg3}}<br><br>
+                    According to Stochastic Gradient Descent : {{msg4}}<br><br>
+                    According to K-Nearest Neighbor : {{msg5}}<br></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2021</p>
+  </div>
+{% endblock %}
