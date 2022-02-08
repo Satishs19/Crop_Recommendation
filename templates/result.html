@@ -5,7 +5,7 @@
 {{ super() }}
 <style>
     .footer {
-        position: fixed;
+       
         left: 0;
         bottom: 0;
         height: 60px;
@@ -15,15 +15,31 @@
         text-align: center;
         padding-top: 20px;
     }
+    table{
+        padding: 20px;
+        margin-top:40px;
+        text-align: center;
+        align-items: center;
+
+        width:1500px;
+        margin-bottom: 50px;
+    }
+    tr{
+        padding-top:20px;
+        padding-bottom:20px;
+    }
+    .cropstab td,tr{
+        padding:20px;
+    }
 </style>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 {% endblock %}\{% block title %}
-Crop recomendation
+Crop recommendation
 {% endblock %}
 
 {% block content %}
 <div class="topnav">
-    <a style="background-color: #333;color: white;font-size: 20px;font-weight: bold;">Crop Recomendation</a>
+    <a style="background-color: #333;color: white;font-size: 20px;font-weight: bold;">Crop recommendation</a>
     <a href="about" style="float:right">About</a>
     <a class="active" href="crop" style="float:right">Crop</a>
     <a href="/" style="float:right">Home</a>
@@ -31,15 +47,57 @@ Crop recomendation
 
 <div class="container" style="width:95%;">
     <div class="row ">
-        <table style="border: 0px;padding-top: 10px;margin-top: 70px;">
+        <table style="border: 2px;margin-left:-40px;">
             <tr>
-                <td><img src="../static/Algorithms.jpg" width=80% ></td>
+                <td><img src="../static/plotx.png" width=500px ></td>
+                <td>
+                    <img src="../static/ploty.png" width=500px >
+                </td>
+            </tr>
+        </table>
+        <table class="cropstab">
+            <tr>
+                <td>
+                    <img src={{img[0]}} width=400px >
+                </td>
                 <td style ="text-align: left;">
-                    <p style="font-size: 20px;">According to Random Forest : {{msg1}}<br><br>
-                    According to Logestic Regression : {{msg2}}<br><br>
-                    According to Support Vector Machine : {{msg3}}<br><br>
-                    According to Stochastic Gradient Descent : {{msg4}}<br><br>
-                    According to K-Nearest Neighbor : {{msg5}}<br></p>
+                    <p style="font-size: 20px;">According to Random Forest : {{crop[0]}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src={{img[1]}} width=400px >
+                </td>
+                <td style ="text-align: left;">
+                    <p style="font-size: 20px;">
+                    According to Logestic Regression : {{crop[1]}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src={{img[2]}} width=400px >
+                </td>
+                <td style ="text-align: left;">
+                    <p style="font-size: 20px;">
+                    According to Support Vector Machine : {{crop[2]}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src={{img[3]}} width=400px >
+                </td>
+                <td style ="text-align: left;">
+                    <p style="font-size: 20px;">
+                    According to Stochastic Gradient Descent : {{crop[3]}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src={{img[4]}} width=400px >
+                </td>
+                <td style ="text-align: left;">
+                    <p style="font-size: 20px;">
+                    According to K-Nearest Neighbor : {{crop[4]}}</p>
                 </td>
             </tr>
         </table>
